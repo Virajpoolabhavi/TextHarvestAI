@@ -1,10 +1,66 @@
 # TextHarvestAI
-> Web Scraping and Text Extraction:
-    Text Harvesh AI uses web scraping to fetch and extract text content from provided URLs. It efficiently processes the web page to retrieve the relevant text, which is     then saved as a text file. This allows users to analyze the content of web pages without manually copying and pasting the text.
-> Integration with Gemini AI for Analysis:
-  Once the text file is generated from the web scraping process, Text Harvesh AI uploads the file to a Large Language Model (LLM) powered by Gemini AI. The LLM             analyzes the text, providing insights, summaries, and answers to user queries based on the content. This integration enables advanced and context-aware analysis of       web-based  information.
-> PDF Upload and Query Functionality:
-  Text Harvesh AI supports uploading PDF documents for analysis. Users can upload their PDF files, and the software processes these documents to extract the text. The
-  extracted text is then analyzed by Gemini AI, allowing users to ask specific questions about the content and receive accurate, detailed responses.
-> User-Friendly Query System:
-  The platform offers an intuitive interface for users to interact with the analyzed text. Whether it's content from a web page or an uploaded PDF, users can input        queries related to the text, and the system provides the best possible answers based on the analysis performed by Gemini AI. This feature makes it a powerful tool for   research, content analysis, and information retrieval.
+
+TextHarvestAI is a Streamlit research assistant that turns web pages and PDF documents into searchable knowledge. It extracts text, creates embeddings, retrieves relevant passages with FAISS, and uses Gemini to answer questions from the selected content.
+
+## Features
+
+- Extract text from a public web page
+- Upload and process multiple PDF documents
+- Split long content into retrieval-friendly chunks
+- Generate embeddings with Google Generative AI
+- Store and search vectors locally with FAISS
+- Ask questions through an interactive Streamlit interface
+
+## How it works
+
+`URL or PDF → text extraction → chunking → Gemini embeddings → FAISS retrieval → context-aware answer`
+
+## Technology stack
+
+- Python
+- Streamlit
+- Google Gemini
+- LangChain
+- FAISS
+- Beautiful Soup
+- PyPDF2
+
+## Run locally
+
+```bash
+git clone https://github.com/Virajpoolabhavi/TextHarvestAI.git
+cd TextHarvestAI/"web scraper"
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Create a `.env` file in the application directory:
+
+```env
+GOOGLE_API_KEY=your_google_gemini_api_key
+```
+
+Start the application:
+
+```bash
+streamlit run chatpdf1.py
+```
+
+## Current limitations
+
+- The vector index is stored locally and is replaced when new content is processed.
+- Web extraction currently focuses on paragraph content.
+- This is a portfolio application; production deployment would require stronger validation, error handling, and persistent storage.
+
+## Future improvements
+
+- Add source citations to generated answers
+- Support multiple saved document collections
+- Add automated tests and URL validation
+- Update the retrieval pipeline to current LangChain APIs
+
+## Author
+
+Built by [Viraj Poolabhavi](https://github.com/Virajpoolabhavi).
