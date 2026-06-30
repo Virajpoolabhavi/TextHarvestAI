@@ -1,7 +1,10 @@
 streamlit
+streamlit-option-menu
 google-generativeai
 python-dotenv
 langchain
+langchain-google-genai
 PyPDF2
 faiss-cpu
-langchain_google_genai
+requests
+beautifulsoup4
